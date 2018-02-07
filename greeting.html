@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>My First React App</title>
+<title>My First React App Homework</title>
 </head>
 
 <body>
-<p>Hello World!</p>
-</body>
+<div id="app"></div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    
+      <script type="text/babel">
+
+      class List extends React.Component {
+        constructor(props){
+           super(props);
+           this.state = {
+             number: 1
+           }
+         }
+        
+        render() {
+          return (
+            <div>
+            <h2>This is {this.props.name}'s React List number {this.state.number}</h2>
+            <ul>
+            	<li>{this.props.label} 1</li>
+            	<li>{this.props.label} 2</li>
+            	<li>{this.props.label} 3</li>
+            </ul>
+             <p>Today's Date: {this.props.date.toLocaleDateString()}</p>
+             <p>The time is: {this.props.time}</p>
+             <p>{info.name} is {info.age} years old.</p>
+            </div>
+            
+          );
+        }
+      }
+
+      const info = {
+        date: new Date(),
+        name: 'Melanie',
+        time: '3:08pm',
+        age: 37,
+      }
+
+      List.defaultProps = {
+        label: "This is label number:"
+        
+      }
+
+      ReactDOM.render(
+        <List
+          date={info.date}
+          name={info.name}
+          time={info.time}
+          age={info.age}/>,document.getElementById('app')
+      );
+
+    </script>      
+      </body>
 
 
 </html>
